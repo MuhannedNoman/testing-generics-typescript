@@ -34,3 +34,16 @@ const makeFullName = <T extends { firstName: string; lastName: string }>(
 };
 
 const i = makeFullName({ firstName: 'Muhanned', lastName: 'Noman', age: 99 });
+
+// Interface
+
+interface Tab<T> {
+  id: string;
+  position: number;
+  data: T;
+}
+
+// You can have different types using the same interfacr as a base.
+
+type NumberTab = Tab<number>;
+type StringTab = Tab<string>;
