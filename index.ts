@@ -20,3 +20,17 @@ const v2 = createArray('Y', 'X');
 const v3 = createArray('Y', 2);
 // Override tyepes
 const v4 = createArray<string | null, number>(null, 2);
+
+// Extend
+// With this you can choose to have firstName and lastName in the object and the rest
+// is whatever.
+const makeFullName = <T extends { firstName: string; lastName: string }>(
+  obj: T
+) => {
+  return {
+    ...obj,
+    fullName: obj.firstName + ' ' + obj.lastName,
+  };
+};
+
+const i = makeFullName({ firstName: 'Muhanned', lastName: 'Noman', age: 99 });
